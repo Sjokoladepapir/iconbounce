@@ -31,6 +31,7 @@ class Rectangle:
     def include_column(self, column):
         self.world[..., column] = 1
 
+    #the following is mostly used for tests, as they create icon worlds where only one path world will have a path
     def makeSpace0(self):
         for i in range(self.row):
             for j in range(self.column):
@@ -42,14 +43,3 @@ class Rectangle:
             for j in range(self.column):
                 if (i + j) % 2 == 1:
                     self.world[i, j] = 0
-
-    # Hack? There is probably a better way of doing this thing. It will be used a lot.
-    def is_valid_range(self,column,row):
-        t = True
-        try:
-            a = self.world[column,row]
-        except:
-            t = False
-        return t
-
-

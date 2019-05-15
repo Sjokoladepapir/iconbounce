@@ -8,15 +8,14 @@ end_of_path_hex = 1
 dl = 0
 dr = 1
 
-
-def direction(row ,column ,world_type):
+def direction(row, column, world_type):
     is_odd = (row + column) % 2 == 1
     return 0 if (world_type == 1 and is_odd is True) or (world_type == 0 and is_odd is False) else 1
 
 
-# Used to get the rigth range in the array. Any value outside is considered as 0
+# Used to get the right range in the array. Any value outside is considered as 0
 def lessClutter(r, c, obj):
-    return obj.is_valid_range(r, c) and obj.world[r, c] and r >= 0 and c >= 0
+    return len(obj.world) > r and len(obj.world[0]) > c and obj.world[r, c] and r >= 0 and c >= 0
 
 
 def naive_stop_rules(obj, row, column, world_type):
